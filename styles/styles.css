@@ -43,23 +43,27 @@
 }
 
 :root {
-  /* Subway Brand Colors */
+  /* Subway Brand Colors - Matched to Live Site */
   --color-subway-green: #008938;
-  --color-subway-green-dark: #006b2b;
-  --color-subway-yellow: #ffc72c;
-  --color-subway-yellow-dark: #e6b327;
+  --color-subway-green-dark: #00572d;
+  --color-subway-green-darker: #00491e;
+  --color-subway-yellow: #f2b700;
+  --color-subway-yellow-dark: #d9a400;
   --color-white: #fff;
   --color-black: #000;
-  --color-gray-dark: #333;
-  --color-gray-medium: #666;
+  --color-gray-dark: #222;
+  --color-gray-medium: #757575;
   --color-gray-light: #f5f5f5;
+  --color-gray-border: #eaeaea;
 
   /* Semantic Colors */
   --background-color: var(--color-white);
-  --background-color-dark: var(--color-subway-green);
+  --background-color-dark: var(--color-black);
+  --background-color-green: var(--color-subway-green);
   --light-color: var(--color-gray-light);
   --dark-color: var(--color-gray-dark);
-  --text-color: var(--color-gray-dark);
+  --text-color: var(--color-black);
+  --text-color-secondary: var(--color-gray-dark);
   --text-color-inverted: var(--color-white);
   --link-color: var(--color-subway-green);
   --link-hover-color: var(--color-subway-green-dark);
@@ -69,18 +73,22 @@
   --heading-font-family: 'SubwaySansLCGBold', subway-sans-fallback, sans-serif;
   --button-font-family: 'SubwaySansCondMedium', subway-sans-fallback, sans-serif;
 
-  /* Body Sizes */
+  /* Body Sizes - Matched to Live Site */
   --body-font-size-m: 18px;
   --body-font-size-s: 16px;
   --body-font-size-xs: 14px;
 
-  /* Heading Sizes - Mobile First */
+  /* Line Heights - Matched to Live Site */
+  --line-height-heading: 1.3;
+  --line-height-body: 1.5;
+
+  /* Heading Sizes - Mobile First (Matched to Live Site) */
   --heading-font-size-xxl: 36px;
-  --heading-font-size-xl: 32px;
-  --heading-font-size-l: 28px;
-  --heading-font-size-m: 24px;
-  --heading-font-size-s: 20px;
-  --heading-font-size-xs: 18px;
+  --heading-font-size-xl: 36px;
+  --heading-font-size-l: 36px;
+  --heading-font-size-m: 28px;
+  --heading-font-size-s: 24px;
+  --heading-font-size-xs: 20px;
 
   /* Spacing */
   --spacing-xs: 8px;
@@ -104,9 +112,9 @@
 
 @media (width >= 900px) {
   :root {
-    /* Heading Sizes - Desktop */
+    /* Heading Sizes - Desktop (Matched to Live Site) */
     --heading-font-size-xxl: 52px;
-    --heading-font-size-xl: 44px;
+    --heading-font-size-xl: 52px;
     --heading-font-size-l: 36px;
     --heading-font-size-m: 28px;
     --heading-font-size-s: 24px;
@@ -121,7 +129,7 @@ body {
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-  line-height: 1.6;
+  line-height: var(--line-height-body);
 }
 
 body.appear {
@@ -152,7 +160,7 @@ h6 {
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: var(--line-height-heading);
   scroll-margin: 40px;
   color: var(--text-color);
 }
@@ -210,7 +218,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Subway Brand Buttons */
+/* Subway Brand Buttons - Matched to Live Site */
 a.button:any-link,
 button {
   box-sizing: border-box;
@@ -221,7 +229,7 @@ button {
   border-radius: var(--button-border-radius);
   padding: var(--button-padding);
   font-family: var(--button-font-family);
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-m);
   font-style: normal;
   font-weight: 500;
   line-height: 1.25;
@@ -329,9 +337,9 @@ main .section.highlight {
   padding: 40px 0;
 }
 
-/* Section Metadata - Dark Background (Subway Green) */
+/* Section Metadata - Dark Background (Black) - Matched to Live Site */
 main .section.dark {
-  background-color: var(--section-dark-background);
+  background-color: var(--color-black);
   margin: 0;
   padding: var(--spacing-xl) 0;
 }
@@ -355,6 +363,35 @@ main .section.dark a.button {
 
 main .section.dark a.button:hover,
 main .section.dark a.button:focus {
+  background-color: var(--color-subway-yellow-dark);
+}
+
+/* Section Metadata - Green Background (Subway Green) */
+main .section.green {
+  background-color: var(--color-subway-green);
+  margin: 0;
+  padding: var(--spacing-xl) 0;
+}
+
+main .section.green h1,
+main .section.green h2,
+main .section.green h3,
+main .section.green h4,
+main .section.green h5,
+main .section.green h6,
+main .section.green p,
+main .section.green li,
+main .section.green a:not(.button) {
+  color: var(--text-color-inverted);
+}
+
+main .section.green a.button {
+  background-color: var(--color-subway-yellow);
+  color: var(--color-black);
+}
+
+main .section.green a.button:hover,
+main .section.green a.button:focus {
   background-color: var(--color-subway-yellow-dark);
 }
 
