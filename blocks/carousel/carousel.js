@@ -58,54 +58,6 @@ export default function decorate(block) {
   nav.appendChild(prevBtn);
   nav.appendChild(nextBtn);
 
-  // Create timeline dots for timeline variant
-  if (isTimeline) {
-    const slides = track.querySelectorAll('.carousel-slide');
-    const dotsContainer = document.createElement('div');
-    dotsContainer.className = 'carousel-timeline';
-
-    const dotsTrack = document.createElement('div');
-    dotsTrack.className = 'carousel-timeline-track';
-
-    slides.forEach((slide, index) => {
-      const content = slide.querySelector('.carousel-slide-content');
-      const strong = content?.querySelector('strong');
-      let year = '';
-
-      if (strong) {
-        const text = strong.textContent;
-        const match = text.match(/^(\d{4})/);
-        if (match) {
-          year = match[1];
-        }
-      }
-
-      const dot = document.createElement('button');
-      dot.className = 'carousel-timeline-dot';
-      dot.dataset.index = index;
-      if (index === 0) dot.classList.add('active');
-
-      const yearLabel = document.createElement('span');
-      yearLabel.className = 'carousel-timeline-year';
-      yearLabel.textContent = year;
-
-      dot.appendChild(yearLabel);
-      dotsTrack.appendChild(dot);
-    });
-
-    dotsContainer.appendChild(dotsTrack);
-    wrapper.insertBefore(dotsContainer, track);
-
-    // Dot click handler
-    dotsTrack.addEventListener('click', (e) => {
-      const dot = e.target.closest('.carousel-timeline-dot');
-      if (dot) {
-        const index = parseInt(dot.dataset.index, 10);
-        goToSlide(index);
-      }
-    });
-  }
-
   block.textContent = '';
   block.appendChild(wrapper);
   block.appendChild(nav);
@@ -146,6 +98,53 @@ export default function decorate(block) {
   function goToSlide(index) {
     currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
     updateCarousel();
+  }
+
+  // Create timeline dots for timeline variant
+  if (isTimeline) {
+    const dotsContainer = document.createElement('div');
+    dotsContainer.className = 'carousel-timeline';
+
+    const dotsTrack = document.createElement('div');
+    dotsTrack.className = 'carousel-timeline-track';
+
+    slides.forEach((slide, index) => {
+      const content = slide.querySelector('.carousel-slide-content');
+      const strong = content?.querySelector('strong');
+      let year = '';
+
+      if (strong) {
+        const text = strong.textContent;
+        const match = text.match(/^(\d{4})/);
+        if (match) {
+          [, year] = match;
+        }
+      }
+
+      const dot = document.createElement('button');
+      dot.className = 'carousel-timeline-dot';
+      dot.dataset.index = index;
+      if (index === 0) dot.classList.add('active');
+
+      const yearLabel = document.createElement('span');
+      yearLabel.className = 'carousel-timeline-year';
+      yearLabel.textContent = year;
+
+      dot.appendChild(yearLabel);
+      dotsTrack.appendChild(dot);
+    });
+
+    dotsContainer.appendChild(dotsTrack);
+    wrapper.insertBefore(dotsContainer, track);
+
+    // Dot click handler
+    dotsTrack.addEventListener('click', (e) => {
+      const dot = e.target.closest('.carousel-timeline-dot');
+      if (dot) {
+        const index = parseInt(dot.dataset.index, 10);
+        goToSlide(index);
+      }
+    });
   }
 
   // Event listeners

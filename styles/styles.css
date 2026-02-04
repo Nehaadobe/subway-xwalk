@@ -12,7 +12,7 @@
 
 /* Subway Brand Fonts */
 @font-face {
-  font-family: 'SubwaySansLCGBold';
+  font-family: SubwaySansLCGBold;
   src: url('/fonts/SubwaySansLCG-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
@@ -20,7 +20,7 @@
 }
 
 @font-face {
-  font-family: 'SubwaySansLCGRegular';
+  font-family: SubwaySansLCGRegular;
   src: url('/fonts/SubwaySansLCG-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
@@ -28,7 +28,7 @@
 }
 
 @font-face {
-  font-family: 'SubwaySansCondMedium';
+  font-family: SubwaySansCondMedium;
   src: url('/fonts/SubwaySansCond-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
@@ -329,6 +329,15 @@ main > .section:first-of-type {
   }
 }
 
+/* List styling */
+ul, ol {
+  padding-left: var(--spacing-m);
+}
+
+li {
+  margin-bottom: var(--spacing-xs);
+}
+
 /* Section Metadata - Light Background */
 main .section.light,
 main .section.highlight {
@@ -361,11 +370,6 @@ main .section.dark a.button {
   color: var(--color-black);
 }
 
-main .section.dark a.button:hover,
-main .section.dark a.button:focus {
-  background-color: var(--color-subway-yellow-dark);
-}
-
 /* Section Metadata - Green Background (Subway Green) */
 main .section.green {
   background-color: var(--color-subway-green);
@@ -390,6 +394,11 @@ main .section.green a.button {
   color: var(--color-black);
 }
 
+main .section.dark a.button:hover,
+main .section.dark a.button:focus {
+  background-color: var(--color-subway-yellow-dark);
+}
+
 main .section.green a.button:hover,
 main .section.green a.button:focus {
   background-color: var(--color-subway-yellow-dark);
@@ -399,13 +408,4 @@ main .section.green a.button:focus {
 strong {
   font-family: var(--heading-font-family);
   font-weight: 700;
-}
-
-/* List styling */
-ul, ol {
-  padding-left: var(--spacing-m);
-}
-
-li {
-  margin-bottom: var(--spacing-xs);
 }

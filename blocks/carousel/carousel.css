@@ -79,13 +79,13 @@
   height: 24px;
 }
 
-.carousel-btn:hover:not(:disabled) {
-  background-color: var(--color-gray-medium, #999);
-}
-
 .carousel-btn:disabled {
   opacity: 0.3;
   cursor: not-allowed;
+}
+
+.carousel-btn:hover:not(:disabled) {
+  background-color: var(--color-gray-medium, #999);
 }
 
 /* Desktop layout */
@@ -141,8 +141,7 @@
 
 /* Timeline dots */
 .carousel-timeline {
-  overflow-x: auto;
-  overflow-y: visible;
+  overflow: auto;
   padding: 0 var(--spacing-m, 16px) var(--spacing-l, 24px);
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -242,14 +241,14 @@
   color: var(--color-white, #fff);
 }
 
-.carousel.timeline .carousel-btn:hover:not(:disabled) {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: var(--color-white, #fff);
-}
-
 .carousel.timeline .carousel-btn:disabled {
   border-color: var(--color-gray-dark, #333);
   color: var(--color-gray-dark, #333);
+}
+
+.carousel.timeline .carousel-btn:hover:not(:disabled) {
+  background-color: rgb(255 255 255 / 10%);
+  border-color: var(--color-white, #fff);
 }
 
 /* Desktop timeline */

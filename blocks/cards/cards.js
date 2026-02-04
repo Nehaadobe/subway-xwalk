@@ -15,9 +15,10 @@ function getYouTubeVideoId(url) {
     /youtube\.com\/v\/([^&?/]+)/,
   ];
 
-  for (const pattern of patterns) {
-    const match = url.match(pattern);
-    if (match) return match[1];
+  const matchedPattern = patterns.find((pattern) => url.match(pattern));
+  if (matchedPattern) {
+    const match = url.match(matchedPattern);
+    return match[1];
   }
 
   return null;

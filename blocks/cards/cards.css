@@ -13,13 +13,13 @@
   background-color: var(--background-color);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .cards > ul > li:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 15%);
 }
 
 .cards .cards-card-image {
@@ -77,14 +77,7 @@
   text-decoration: none;
 }
 
-/* Cards in dark sections */
-.section.dark .cards > ul > li {
-  background-color: rgba(255, 255, 255, 0.95);
-}
-
-.section.dark .cards .cards-card-body a {
-  color: var(--color-subway-green);
-}
+/* stylelint-disable no-descending-specificity -- Variant styles have intentional specificity patterns */
 
 /* Info Cards Variant - vertical cards with image on top, text below */
 .cards.info > ul {
@@ -245,7 +238,7 @@
   transform: translate(-50%, -50%);
   width: 60px;
   height: 60px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgb(255 255 255 / 90%);
   border-radius: 50%;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23008938'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -335,20 +328,29 @@
   }
 }
 
+/* Cards in dark sections */
+.section.dark .cards > ul > li {
+  background-color: rgb(255 255 255 / 95%);
+}
+
+.section.dark .cards .cards-card-body a {
+  color: var(--color-subway-green);
+}
+
 /* Video Modal Overlay */
 .video-modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgb(0 0 0 / 90%);
   z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--spacing-m, 16px);
-  animation: fadeIn 0.2s ease;
+  animation: fade-in 0.2s ease;
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
 }
@@ -368,7 +370,7 @@
   right: 8px;
   width: 36px;
   height: 36px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgb(0 0 0 / 50%);
   border: none;
   border-radius: 50%;
   color: var(--color-white, #fff);
@@ -386,7 +388,7 @@
 }
 
 .video-modal-close:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgb(0 0 0 / 80%);
   color: var(--color-white, #fff);
 }
 
@@ -403,3 +405,5 @@
   height: 100%;
   border: none;
 }
+
+/* stylelint-enable no-descending-specificity */
