@@ -15,16 +15,19 @@
       "hero",
       "cards",
       "columns",
-      "carousel",
-      "fragment",
-      "metadata",
-      "section-metadata"
+      "fragment"
     ]
   },
   {
     "id": "cards",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "carousel",
+    "components": [
+      "carousel-item"
     ]
   },
   {
@@ -40,12 +43,6 @@
       "image",
       "button",
       "title"
-    ]
-  },
-  {
-    "id": "carousel",
-    "components": [
-      "carousel-item"
     ]
   }
 ]
