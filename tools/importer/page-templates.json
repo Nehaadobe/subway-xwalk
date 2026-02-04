@@ -1,0 +1,29 @@
+{
+  "templates": [
+    {
+      "name": "about-page",
+      "description": "About/History pages with hero banner, text sections, video cards, columns layout, and timeline cards",
+      "urls": [
+        "https://www.subway.com/en-us/aboutus/history",
+        "https://www.subway.com/en-us/aboutus"
+      ],
+      "blocks": [
+        {
+          "name": "hero",
+          "instances": [".component_hero", ".hero-banner"],
+          "section": "header"
+        },
+        {
+          "name": "cards",
+          "instances": [".component_quote", ".component_inline_card", ".timeline-cards"],
+          "section": "content"
+        },
+        {
+          "name": "columns",
+          "instances": [".component_50_50", ".two-column"],
+          "section": "content"
+        }
+      ]
+    }
+  ]
+}

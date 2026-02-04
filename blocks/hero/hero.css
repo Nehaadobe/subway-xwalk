@@ -1,27 +1,44 @@
+/* Hero Block - Subway Brand Styling */
+
+/* White card extends below hero image, overlapping into next section */
+
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
 }
 
-.hero {
-  position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+.hero-container {
+  margin-bottom: 0;
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+.hero {
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 0;
+  padding-bottom: 60px; /* Space for card to extend below */
+}
+
+/* Background image container */
+.hero .hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(100% - 60px); /* Image doesn't extend into card overlap area */
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero .hero-image > div {
+  height: 100%;
 }
 
 .hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
+  display: block;
+  height: 100%;
 }
 
 .hero img {
@@ -30,8 +47,85 @@
   height: 100%;
 }
 
+/* White card - positioned to overlap below hero image */
+.hero .hero-text {
+  position: relative;
+  z-index: 2;
+  background-color: var(--color-white, #fff);
+  padding: var(--spacing-l, 32px) var(--spacing-xl, 48px);
+  margin: 0 var(--spacing-m, 16px);
+  border-radius: 8px;
+  text-align: center;
+  width: calc(100% - 32px);
+  max-width: 95%;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 8%);
+}
+
+/* Hero title styling */
+.hero .hero-title,
+.hero .hero-title p,
+.hero .hero-title > div {
+  color: var(--color-black, #000);
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xxl, 36px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* Hero description styling */
+.hero .hero-description {
+  margin-top: var(--spacing-m, 16px);
+}
+
+.hero .hero-description p,
+.hero .hero-description > div {
+  color: var(--color-black, #000);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m, 16px);
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Remove default section spacing after hero */
+.hero-container + .section {
+  padding-top: var(--spacing-l, 32px);
+}
+
+@media (width >= 600px) {
+  .hero {
+    min-height: 320px;
+    padding-bottom: 70px;
+  }
+
+  .hero .hero-image {
+    height: calc(100% - 70px);
+  }
+
+  .hero .hero-text {
+    padding: var(--spacing-l, 32px) var(--spacing-xxl, 64px);
+    max-width: 90%;
+  }
+}
+
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    min-height: 380px;
+    padding-bottom: 80px;
+  }
+
+  .hero .hero-image {
+    height: calc(100% - 80px);
+  }
+
+  .hero .hero-title,
+  .hero .hero-title p,
+  .hero .hero-title > div {
+    font-size: 48px;
+  }
+
+  .hero .hero-text {
+    max-width: 85%;
   }
 }
